@@ -36,6 +36,23 @@ def loadTable(name):
     return headers, rows
 
 
-_, rows = loadTable('employee')
+_, employeeRows = loadTable('employee')
+_, durationRows = loadTable('duration')
+_, salaryByStateRows = loadTable('salarybystate')
+_, salaryByDurationRows = loadTable('salarybyduration')
 
-print(rows[0][0])
+employees = {}
+
+# create relevant employee info
+for employee in employeeRows:
+    employeeInfo = {}
+    employeeInfo['state'] = employee[6]
+
+    employees[employee[0]] = employeeInfo
+
+# add employee duration
+for employee in durationRows:
+    employees[employee[1]]['duration'] = employee[3]
+
+
+print(employees[0])
