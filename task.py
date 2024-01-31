@@ -34,3 +34,8 @@ def loadTable(name):
         rows.append(row)
 
     return headers, rows
+
+
+_, rows = loadTable('employee')
+
+print(rows[0][0])
