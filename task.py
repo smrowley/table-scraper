@@ -3,7 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-baseUrl = 'http://homesandmore.com/report1.php?type='
+baseUrl = 'http://www.homesandmore.com/report1.php?type='
 
 
 #class Row:
