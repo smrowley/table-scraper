@@ -2,6 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+from collections import defaultdict
 
 baseUrl = 'http://www.homesandmore.com/report1.php?type='
 
@@ -42,17 +43,25 @@ _, salaryByStateRows = loadTable('salarybystate')
 _, salaryByDurationRows = loadTable('salarybyduration')
 
 employees = {}
+stateCounts = defaultdict(int)
+durationCounts = defaultdict(int)
 
 # create relevant employee info
 for employee in employeeRows:
     employeeInfo = {}
     employeeInfo['state'] = employee[6]
-
     employees[employee[0]] = employeeInfo
+
+    stateCounts[employee[6]] += 1
 
 # add employee duration
 for employee in durationRows:
     employees[employee[1]]['duration'] = employee[3]
 
+    durationCounts[employee[3]] += 1
 
-print(employees[0])
+for employee in employees:
+    employee['stateNeighbors'] = stateCounts[employee['state']]
+    employee['durationNeighbors'] = stateCounts[employee['duration']]
+
+print(employees['20da2e667b84'])
