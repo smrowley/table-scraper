@@ -67,4 +67,6 @@ for empId in employees:
     employee = employees[empId]
 
     if employee['stateNeighbors'] < 3 and employee['durationNeighbors'] < 3:
-        print(empId + " --- " + employees[empId])
+        print(empId + " --- ")
+        print(employees[empId])
+        print("#######")
