@@ -61,7 +61,7 @@ for employee in durationRows:
     durationCounts[employee[3]] += 1
 
 for employee in employees:
-    employee['stateNeighbors'] = stateCounts[employee['state']]
-    employee['durationNeighbors'] = stateCounts[employee['duration']]
+    employees[employee]['stateNeighbors'] = stateCounts[employees[employee]['state']]
+    employees[employee]['durationNeighbors'] = durationCounts[employees[employee]['duration']]
 
 print(employees['20da2e667b84'])
