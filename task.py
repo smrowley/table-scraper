@@ -60,8 +60,11 @@ for employee in durationRows:
 
     durationCounts[employee[3]] += 1
 
-for employee in employees:
-    employees[employee]['stateNeighbors'] = stateCounts[employees[employee]['state']]
-    employees[employee]['durationNeighbors'] = durationCounts[employees[employee]['duration']]
+for empId in employees:
+    employees[empId]['stateNeighbors'] = stateCounts[employees[empId]['state']]
+    employees[empId]['durationNeighbors'] = durationCounts[employees[empId]['duration']]
 
-print(employees['20da2e667b84'])
+    employee = employees[empId]
+
+    if employee['stateNeighbors'] < 3 and employee['durationNeighbors'] < 3:
+        print(empId + " --- " + employees[empId])
