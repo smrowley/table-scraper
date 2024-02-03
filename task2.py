@@ -44,4 +44,8 @@ for voter in votersRows:
         if person['dob'] == claim[0] and person['gender'] == claim[1] and person['zip'] == claim[2]:
             person['claims'].append({'service_date': claim[3], 'charge': claim[4], 'paid': claim[5]})
 
-    people.append(person)
+    if len(person['claims']) > 0:
+        people.append(person)
+
+print('num voters: ' + len(votersRows))
+print('people with claims: ' + len(people))
