@@ -47,5 +47,5 @@ for voter in votersRows:
     if len(person['claims']) > 0:
         people.append(person)
 
-print('num voters: ' + len(votersRows))
-print('people with claims: ' + len(people))
+print(f'num voters: { len(votersRows) }')
+print(f'people with claims: { len(people) }')
