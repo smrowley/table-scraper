@@ -31,7 +31,11 @@ _, medicalCodeRows = loadTable('http://www.coderepository.com/codes.php?type=cpt
 _, claimsRows = loadTable('http://www.communalinsurance.com/insurance.php')
 _, votersRows = loadTable('http://www.nationalvoterregistration.com/voter.php')
 
-print(medicalRows[0])
-print(medicalCodeRows[0])
-print(claimsRows[0])
-print(votersRows[0])
+people = []
+
+# brute force data joining, just a quick and dirty impl
+for voter in votersRows:
+    person = {}
+    person['id'], person['first'], person['first'], person['last'], person['dob'], person['dod'], person['gender'], person['zip'], person['ethnicity'], person['party'], person['registered'], person['last_voted'] = voter
+
+    people.append(person)
