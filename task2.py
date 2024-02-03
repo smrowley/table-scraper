@@ -49,3 +49,16 @@ for voter in votersRows:
 
 print(f'num voters: { len(votersRows) }')
 print(f'people with claims: { len(people) }')
+
+# filter for claims that match medical history records
+matched_people = []
+for person in people:
+    for claim in person['claims']:
+        for medicalRecord in medicalRows:
+            # if date of service matches claim, then add it
+            if medicalRecord[1] == claim['service_date']:
+                claim['record'] = medicalRecord
+                matched_people.append(person)
+
+print(f'num matches { len(matched_people) }')
+print(matched_people)
