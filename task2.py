@@ -38,4 +38,10 @@ for voter in votersRows:
     person = {}
     person['id'], person['first'], person['last'], person['dob'], person['dod'], person['gender'], person['zip'], person['ethnicity'], person['party'], person['registered'], person['last_voted'] = voter
 
+    person['claims'] = []
+
+    for claim in claimsRows:
+        if person['dob'] == claim[0] and person['gender'] == claim[1] and person['zip'] == claim[2]:
+            person['claims'].append({'service_date': claim[3], 'charge': claim[4], 'paid': claim[5]})
+
     people.append(person)
