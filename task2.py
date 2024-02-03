@@ -36,6 +36,6 @@ people = []
 # brute force data joining, just a quick and dirty impl
 for voter in votersRows:
     person = {}
-    person['id'], person['first'], person['first'], person['last'], person['dob'], person['dod'], person['gender'], person['zip'], person['ethnicity'], person['party'], person['registered'], person['last_voted'] = voter
+    person['id'], person['first'], person['last'], person['dob'], person['dod'], person['gender'], person['zip'], person['ethnicity'], person['party'], person['registered'], person['last_voted'] = voter
 
     people.append(person)
